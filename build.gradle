@@ -27,22 +27,18 @@ repositories {
     maven { url "https://jcenter.bintray.com" }
 }
 
-dependencyManagement {
-    imports {
-        mavenBom 'io.micronaut:bom:1.0.0.M3'
-    }
-}
+ext.micronautVersion = '1.0.0.M3'
 
 dependencies {
     // Groovy
     compile('org.codehaus.groovy:groovy')
 
     // Micronaut
-    annotationProcessor "io.micronaut:inject-java"
-    compileOnly "io.micronaut:inject-java"
-    compile "io.micronaut:inject"
-    compile "io.micronaut:runtime"
-    testCompile "io.micronaut:inject-java"
+    annotationProcessor "io.micronaut:inject-java:${micronautVersion}"
+    compileOnly "io.micronaut:inject-java:${micronautVersion}"
+    compile "io.micronaut:inject:${micronautVersion}"
+    compile "io.micronaut:runtime:${micronautVersion}"
+    testCompile "io.micronaut:inject-java:${micronautVersion}"
 
     // Spring
     compile('org.springframework.boot:spring-boot-starter-webflux')
