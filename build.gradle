@@ -34,11 +34,13 @@ dependencies {
     compile('org.codehaus.groovy:groovy')
 
     // Micronaut
-    annotationProcessor "io.micronaut:inject-java:${micronautVersion}"
-    compileOnly "io.micronaut:inject-java:${micronautVersion}"
-    compile "io.micronaut:inject:${micronautVersion}"
-    compile "io.micronaut:runtime:${micronautVersion}"
-    testCompile "io.micronaut:inject-java:${micronautVersion}"
+    compile "io.micronaut:runtime-groovy:${micronautVersion}"
+    compileOnly "io.micronaut:inject-groovy:${micronautVersion}"
+    compile "io.micronaut:spring:${micronautVersion}"
+    testCompile "io.micronaut:inject-groovy:${micronautVersion}"
+    testCompile("org.spockframework:spock-core:1.1-groovy-2.4") {
+        exclude group: "org.codehaus.groovy", module: "groovy-all"
+    }
 
     // Spring
     compile('org.springframework.boot:spring-boot-starter-webflux')
