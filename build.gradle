@@ -30,24 +30,29 @@ repositories {
 ext.micronautVersion = '1.0.0.M3'
 
 dependencies {
-    // Groovy
-    compile('org.codehaus.groovy:groovy')
+    // Lang
+    implementation('org.codehaus.groovy:groovy')
 
-    // Micronaut
-    compile "io.micronaut:runtime-groovy:${micronautVersion}"
+    // Context
+    implementation "io.micronaut:runtime:${micronautVersion}"
+    implementation "io.micronaut:runtime-groovy:${micronautVersion}"
     compileOnly "io.micronaut:inject-groovy:${micronautVersion}"
-    compile "io.micronaut:spring:${micronautVersion}"
-    testCompile "io.micronaut:inject-groovy:${micronautVersion}"
-    testCompile("org.spockframework:spock-core:1.1-groovy-2.4") {
+    implementation "io.micronaut:spring:${micronautVersion}"
+
+    // Web
+    implementation('org.springframework.boot:spring-boot-starter-webflux')
+    implementation('org.springframework.boot:spring-boot-starter-hateoas')
+
+    // Security
+    implementation('org.springframework.boot:spring-boot-starter-security')
+
+    //Test
+    testImplementation "io.micronaut:inject-groovy:${micronautVersion}"
+    testImplementation("org.spockframework:spock-core:1.1-groovy-2.4") {
         exclude group: "org.codehaus.groovy", module: "groovy-all"
     }
-
-    // Spring
-    compile('org.springframework.boot:spring-boot-starter-webflux')
-    compile('org.springframework.boot:spring-boot-starter-hateoas')
-    compile('org.springframework.boot:spring-boot-starter-security')
-    testCompile('org.springframework.boot:spring-boot-starter-test')
-    testCompile('org.springframework.restdocs:spring-restdocs-mockmvc')
-    testCompile('org.springframework.security:spring-security-test')
-    testCompile('io.projectreactor:reactor-test')
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testImplementation('org.springframework.restdocs:spring-restdocs-mockmvc')
+    testImplementation('org.springframework.security:spring-security-test')
+    testImplementation('io.projectreactor:reactor-test')
 }
