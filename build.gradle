@@ -33,12 +33,6 @@ dependencies {
     // Lang
     implementation('org.codehaus.groovy:groovy')
 
-    // Context
-    implementation "io.micronaut:runtime:${micronautVersion}"
-    implementation "io.micronaut:runtime-groovy:${micronautVersion}"
-    compileOnly "io.micronaut:inject-groovy:${micronautVersion}"
-    implementation "io.micronaut:spring:${micronautVersion}"
-
     // Web
     implementation('org.springframework.boot:spring-boot-starter-webflux')
     implementation('org.springframework.boot:spring-boot-starter-hateoas')
@@ -46,7 +40,7 @@ dependencies {
     // Security
     implementation('org.springframework.boot:spring-boot-starter-security')
 
-    //Test
+    // Test
     testImplementation "io.micronaut:inject-groovy:${micronautVersion}"
     testImplementation("org.spockframework:spock-core:1.1-groovy-2.4") {
         exclude group: "org.codehaus.groovy", module: "groovy-all"
